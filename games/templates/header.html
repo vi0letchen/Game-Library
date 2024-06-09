@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav>
+        <!--Buttons and search bar and logo-->
+        <header class="header">
+    <!--Gaming logo button     -->
+            <a class="gaming_logo" href="/"><img src="{{ url_for('static', filename='gaming_logo.jpg') }}" alt="gaming logo"></a>
+    <!--Button and search bar        -->
+            <div class="button_and_search">
+    <!--Buttons-->
+                <nav>
+                    <ul>
+                        <a id="home" href="/">Home</a>
+                        <a id="browse" href="/browse">Browse</a>
+                        <a id="wishlist" href="/wishlist">Wishlist</a>
+                        <a id ="profile" href="/profile">Profile</a>
+                        <!-- Add other navigation links as needed -->
+                    </ul>
+                </nav>
+        <!--Search bar and search button-->
+                <form class="search_game" action="/search" method="get">
+                    {% include 'search.html' %}
+                    <input class="search_bar" type="text" name="query" placeholder="Search for games...">
+                    <input class="search_button" id="search_logo" type="image" src="{{ url_for('static', filename='search_logo.jpg') }}" alt="Search">
+                </form>
+            </div>
+
+            <!--Register and Login button-->
+            <section class="account_button">
+                <!-- Check if user is logged in -->
+                {% if user %}
+                    <!-- If user IS logged in, show this -->
+                    <a href="{{ url_for('auth_bp.logout') }}">Logout</a>
+                {% else %}
+                <!-- If user is NOT logged in, show these -->
+                    <a href="{{ url_for('auth_bp.register') }}">Register</a>
+                    <a href="{{ url_for('auth_bp.login') }}">Login</a>
+                {% endif %}
+            </section>
+        </header>
+    </nav>
+</body>
+</html>

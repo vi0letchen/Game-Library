@@ -1,0 +1,292 @@
+/*Page design*/
+html, body{
+    background-color: #15161a;
+    margin:0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/*header*/
+.header{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+/*header gaming logo*/
+.gaming_logo {
+    width: 200%;
+    height: 100%;
+}
+
+/*layout of the button*/
+.header ul {
+    display: flex;
+    margin-left: auto;
+    margin-top: -30px;
+    justify-content: flex-end
+}
+
+/*button*/
+.header ul a{
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size : 15px;
+}
+
+/*when it touches the button*/
+.header ul a:hover{
+    color: #3498db;
+}
+
+/*browse button*/
+#browse {
+    color: #3498db;
+}
+
+/*layout of the search button and the register and login button*/
+.account_button {
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: -20px;
+
+}
+
+/*register and login button*/
+.account_button a{
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background: #3498db;
+    border-color: #3498db;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 8px;
+    height: 15px;
+    width: 60px;
+
+}
+
+/*when it touches register and login button*/
+.account_button a:hover{
+    color: #3498db;
+    background: white;
+    border-color: white;
+}
+
+/*search type bar button layout*/
+.search_game{
+    display: flex;
+    margin-left: 17%
+}
+
+/*search type box*/
+.search_type{
+    color: white;
+    background: none;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    text-align: center;
+    padding: 15px;
+    font-size : 15px;
+}
+
+/* search type box list */
+option{
+    color: white;
+    background: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+/*search bar*/
+.search_bar{
+    outline: none;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50px;
+    color: white;
+    background: none;
+    font-size: 20px;
+    float: left;
+    padding: 10px;
+    margin-top: 20px;
+    height: 20px;
+    width: 300px;
+}
+
+/*when typing in the search bar*/
+.search_bar:focus{
+    border-color: #3498db;
+}
+
+/*search button*/
+.search_button{
+    color: white;
+    background: none;
+    padding: 10px;
+    float: right;
+    justify_content: center;
+    display: flex;
+    margin-left: -55px;
+    margin-top: 13px;
+}
+
+/*search button logo*/
+#search_logo {
+    width: 3%;
+    height: 3%;
+}
+
+/* Flexbox layout styles */
+.content-wrapper {
+    display: flex;
+    color: white;
+}
+
+/* sidebar */
+.sidebar {
+    color: white;
+    padding: 10px;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    width: 15%;
+}
+
+/* sidebar list*/
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar li {
+    margin-bottom: 4px;
+    padding: 4px;
+}
+
+/* sidebar list button*/
+.sidebar a{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* when it touches sidebar list button*/
+.sidebar a:hover{
+    color: #6897bb;
+
+}
+
+/* whole detail */
+.main-content {
+    margin-left: 50px;
+}
+
+/* detail label */
+.main-content th{
+    padding: 10px;
+    margin-top: 10px;
+    color:white;
+    font-size: 25px;
+    text-decoration: underline;
+
+}
+
+/* detail list */
+.main-content td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px;
+    color: white;
+}
+
+/* length of the game id list */
+.game_id{
+    width: 10%;
+}
+
+/* length of the game title list */
+.game_title{
+    color: white;
+    text-decoration: none;
+    width: 20%;
+}
+
+/* when touch the game title */
+.game_title:hover {
+    color: #3498db;
+}
+
+/* length of the game date list */
+.game_date {
+    width: 15%;
+}
+
+/* length of the game price list */
+.game_price {
+    width: 10%;
+}
+
+/* length of the game game publisher name list */
+.game_publisher_name {
+    width: 15%;
+}
+
+/* length of the genres list */
+.game_genres {
+    width: 30%;
+}
+
+/* number of page and button */
+.pagination{
+    color: white;
+    font-size: 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+/* page button */
+.pagination a{
+    color: white;
+    text-decoration: none;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+/* when it touches the page button */
+.pagination a:hover{
+    color: #3498db;
+    border-color: #3498db;
+}
+
+/*upi label*/
+.copyright {
+    background: #15161a;
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    margin-top: auto;
+    padding: 30px;
+}
+
+/*heading 2*/
+h2{
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    font-size: 40px;
+    margin: 0;
+}

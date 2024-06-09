@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+
+</head>
+
+<body>
+    {% include 'account_header.html' %}
+
+    <section class="profile-section">
+        <h1>Welcome, {{ user.username }}</h1>
+
+        <div class="activities">
+            <!-- Rated Games -->
+            <div class="activity rated-games">
+                <h2>Games You've Rated</h2>
+                {% if activities.reviews %}
+                    <ul>
+                        {% for review in activities.reviews %}
+                            <li>{{ review.game.title }} - Rated: {{ review.rating }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>You haven't rated any games yet!</p>
+                {% endif %}
+            </div>
+
+            <!-- Reviews -->
+            <div class="activity reviews">
+                <h2>Your Reviews</h2>
+                {% if activities.reviews %}
+                    <ul>
+                        {% for review in activities.reviews %}
+                            <li>{{ review.game.title }} - "{{ review.comment }}"</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>You haven't commented any games yet!</p>
+                {% endif %}
+            </div>
+
+            <!-- Wishlist -->
+            <div class="activity wishlist">
+                <h2>Your Wishlist</h2>
+                {% if activities.wishlist %}
+                    <ul>
+                        {% for game in activities.wishlist %}
+                            <li>{{ game.title }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>You haven't added any games to your wishlist yet!</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <footer class="copyright">
+        &copy; hche589 | stan363 | ycha624
+    </footer>
+
+</body>
+</html>

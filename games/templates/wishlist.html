@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wishlist.css') }}">
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flashes">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <section class="main">
+
+        <h2>Your Wishlist</h2>
+
+        <div>
+            {% if wishlist|length > 0 %}
+            <ul>
+                {% for game in wishlist %}
+                    <li>
+                        <a href="{{ url_for('games_bp.show_game_detail', game_id=game.game_id) }}">{{ game.title }}</a>
+
+                        <!-- remove from Wishlist button -->
+                        <form action="{{ url_for('wishlist_bp.remove_from_wishlist',game_id=game.game_id) }}" method="post">
+                            <input type="hidden" name="redirect_url" value="{{ url_for('wishlist_bp.get_wishlist') }}">
+                            <button type="submit" class="submit">Remove from Wishlist</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <p>You haven't added any games to your wishlist yet.</p>
+            {% endif %}
+        </div>
+
+    </section>
+
+    <footer class="copyright">
+        &copy; hche589 | stan363 | ycha624
+    </footer>
+
+</body>
+
+</html>

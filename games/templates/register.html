@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create_account.css') }}">
+</head>
+
+<body>
+
+{% include 'account_header.html' %}
+
+<section class="create_account">
+    <!--Game logo-->
+    <img class="game_logo" src="{{ url_for('static', filename='game_logo.png') }}" alt="game logo">
+
+    <!--Account detail section-->
+    <div class="account_detail">
+        <!--Title Register-->
+        <h2>Register your account</h2>
+
+        <form method="post" action="{{ url_for('auth_bp.register') }}">
+            {{ form.hidden_tag() }}
+
+            <!--Input username-->
+            {% if user_name_error_message %}
+            <div class="errors">{{ user_name_error_message }}</div>
+            {% endif %}
+            {{ form.username(class="username", placeholder="Username...") }}
+            {% if form.username.errors %}
+            <ul class="errors">
+                {% for error in form.username.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <!--Input password-->
+            {{ form.password(class="password", placeholder="Password...") }}
+            {% if form.password.errors %}
+            <ul class="errors">
+                {% for error in form.password.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <!--Confirm password-->
+            {{ form.confirm_password(class="confirm_password", placeholder="Confirm password...") }}
+            {% if form.confirm_password.errors %}
+            <ul class="errors">
+                {% for error in form.confirm_password.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <div style="width: 376px; display: flex; justify-content: flex-end">
+                <!--Register button-->
+                {{ form.submit(class="user_account_button") }}
+            </div>
+
+        </form>
+
+        <!--If user already has an account-->
+        <div class="account">
+            <p>Already have an account?</p>
+            <a href="{{ url_for('auth_bp.login') }}">Login</a>
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="copyright">
+    &copy; hche589 | stan363 | ycha624
+</footer>
+
+</body>
+
+</html>
