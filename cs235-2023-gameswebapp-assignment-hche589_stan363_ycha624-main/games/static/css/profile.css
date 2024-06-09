@@ -1,0 +1,183 @@
+/*Page design*/
+html, body{
+    background-color: #15161a;
+    margin:0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/*header*/
+.header{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+/*header gaming logo*/
+.gaming_logo {
+    width: 200%;
+    height: 100%;
+}
+
+/*button and search*/
+.button_and_search{
+    display: flex;
+    margin-left: auto;
+    margin-top: -30px;
+    justify-content: flex-end
+}
+
+/*button*/
+.button_and_search ul{
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end
+}
+
+/*button*/
+.button_and_search a{
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size : 15px;
+}
+
+/*when it touches the button*/
+.button_and_search a:hover{
+    color: #3498db;
+}
+
+/*search type bar button layout*/
+.search_game{
+    display: flex;
+}
+
+/*search type box*/
+.search_type{
+    color: white;
+    background: none;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    text-align: center;
+    padding: 15px;
+    font-size : 15px;
+}
+
+/* search type box list */
+option{
+    color: white;
+    background: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+/*search bar*/
+.search_bar{
+    outline: none;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50px;
+    color: white;
+    background: none;
+    font-size: 20px;
+    float: left;
+    padding: 10px;
+    margin-top: 20px;
+    height: 20px;
+    width: 300px;
+}
+
+/*when typing in the search bar*/
+.search_bar:focus{
+    border-color: #3498db;
+}
+
+/*search button*/
+.search_button{
+    color: white;
+    background: none;
+    padding: 10px;
+    float: right;
+    justify_content: center;
+    display: flex;
+    margin-left: -65px;
+    margin-top: 16px;
+}
+
+/*search button logo*/
+#search_logo {
+    width: 15%;
+    height: 35%;
+}
+
+/*layout of the search button and the register and login button*/
+.account_button {
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+    gap: 5px;
+
+}
+
+/*register and login button*/
+.account_button a{
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background: #3498db;
+    border-color: #3498db;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 8px;
+    height: 15px;
+    width: 60px;
+
+}
+
+/*when it touches register and login button*/
+.account_button a:hover{
+    color: #3498db;
+    background: white;
+    border-color: white;
+}
+
+/*upi label*/
+.copyright {
+    background: #15161a;
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    margin-top: auto;
+    padding: 30px;
+}
+
+.profile-section {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.activities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.activity {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.activity h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}

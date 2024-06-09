@@ -1,0 +1,9 @@
+pytest~=7.4.2
+Flask==2.3.2
+Flask-WTF
+password-validator
+Flask-Login
+
+WTForms~=3.0.1
+werkzeug~=2.3.7
+SQLAlchemy~=2.0.21

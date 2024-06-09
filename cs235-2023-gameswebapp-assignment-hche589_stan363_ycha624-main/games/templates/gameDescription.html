@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Description</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gameDescription.css') }}">
+</head>
+<body>
+
+{% include 'header.html' %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flashes">
+    {% for category, message in messages %}
+    <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<section class="game">
+    <div class="game_detail">
+        <div class="name_and_add">
+            <h1>{{ title }}</h1>
+            <!-- Add to Wishlist button -->
+            {% if user %}
+            {% if game in wishlist%}
+            <form action="{{ url_for('wishlist_bp.remove_from_wishlist', game_id=game.game_id) }}" method="post">
+                <input type="hidden" name="redirect_url"
+                       value="{{ url_for('games_bp.show_game_detail', game_id=game.game_id) }}">
+                <button type="submit">Remove from Wishlist</button>
+            </form>
+            {% else %}
+            <form action="{{ url_for('wishlist_bp.add_game_to_wishlist', game_id=game.game_id) }}" method="get">
+                <button type="submit">Add to Wishlist</button>
+            </form>
+            {% endif %}
+            {% endif %}
+        </div>
+
+        <p><i>Release Date:</i> {{ release_date }} </p>
+        <p><i>Price: $</i> {{ price }}</p>
+        <p><i>About:</i> {{ description }} </p>
+
+    </div>
+    <div class="review_and_image">
+        {% if image_url %}
+        <img class="game_image" src="{{image_url}}" alt="game image">
+        {% endif %}
+        <!--Review code here-->
+
+        <div class="review">
+            <h2>Add a Review</h2>
+            {% if 'username' in session %}
+            {% if if_reviewed %}
+            <p>You have already reviewed this game.</p>
+            {% else %}
+
+            <form class="rate_comment" method="post"
+                  action="{{ url_for('games_bp.show_game_detail', game_id=game_id) }}">
+
+                <div class="form_group_rate">
+                    <h3>Rating:</h3>
+                    <div class="rate">
+                        <input style="display: none;" class="rate" id="rating" name="rating" type="number">
+                        {% for i in range(5) %}
+                        <img class="star" id="star{{i}}" value="{{i+1}}" src="/static/star.png" height="29px">
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="form_group_comment">
+                    <label for="comment"><h3>Comment:</h3></label>
+                    {{ form.comment(class="comment") }}
+                </div>
+                <button type="submit" class="submit">Submit Review</button>
+            </form>
+            {% endif %}
+            {% else %}
+            <p>Please login to add a review to this game.</p>
+            {% endif %}
+
+            <ul>
+                <h2 class="user_reviews">User Reviews</h2>
+                <h3 class="average_rating">Average Rating: {{ average_rating }}</h3>
+
+                {% if reviews %}
+                <ul>
+                    {% for review in reviews|reverse %}
+                    <li>
+                        <strong>User:</strong> {{ review.username }}<br>
+                        <strong>Rating:</strong> {{ review.rating }}<br>
+                        <strong>Comment:</strong> {{ review.comment }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No reviews available for this game.</p>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+
+<footer class="copyright">
+    <!-- You can add footer details if needed -->
+    &copy; hche589 | stan363 | ycha624
+</footer>
+
+<script>
+    const rating=document.getElementById('rating')
+    console.log(rating)
+
+    Array.from(document.getElementsByClassName('star')).forEach(image=>
+        image.addEventListener('click',function (){
+            const value=this.getAttribute('value')
+            rating.value=value
+
+            for(let i=0;i<value;i++){
+                const img=document.getElementById(`star${i}`)
+                img.src='/static/stars.png'
+            }
+
+            for(let i=value;i<6;i++){
+                const img=document.getElementById(`star${i}`)
+                img.src='/static/star.png'
+            }
+        })
+    )
+</script>
+</body>
+</html>

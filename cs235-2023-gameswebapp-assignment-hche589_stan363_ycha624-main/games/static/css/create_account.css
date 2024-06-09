@@ -1,0 +1,264 @@
+/*Page design*/
+html, body{
+    background-color: #15161a;
+    margin:0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/*header*/
+.header{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+/*header gaming logo*/
+.gaming_logo {
+    width: 200%;
+    height: 100%;
+}
+
+/*button and search*/
+.button_and_search{
+    display: flex;
+    margin-left: auto;
+    margin-top: -30px;
+    justify-content: flex-end
+}
+
+/*button*/
+.button_and_search ul{
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end
+}
+
+/*button*/
+.button_and_search a{
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size : 15px;
+}
+
+/*when it touches the button*/
+.button_and_search a:hover{
+    color: #3498db;
+}
+
+/*search type bar button layout*/
+.search_game{
+    display: flex;
+}
+
+/*search type box*/
+.search_type{
+    color: white;
+    background: none;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    text-align: center;
+    padding: 15px;
+    font-size : 15px;
+}
+
+/* search type box list */
+option{
+    color: white;
+    background: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+/*search bar*/
+.search_bar{
+    outline: none;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50px;
+    color: white;
+    background: none;
+    font-size: 20px;
+    float: left;
+    padding: 10px;
+    margin-top: 20px;
+    height: 20px;
+    width: 300px;
+}
+
+/*when typing in the search bar*/
+.search_bar:focus{
+    border-color: #3498db;
+}
+
+/*search button*/
+.search_button{
+    color: white;
+    background: none;
+    padding: 10px;
+    float: right;
+    justify_content: center;
+    display: flex;
+    margin-left: -65px;
+    margin-top: 16px;
+}
+
+/*search button logo*/
+#search_logo {
+    width: 15%;
+    height: 35%;
+}
+
+/*the layout of the body*/
+.create_account {
+    color: white;
+    display: flex;
+    gap: 150px;
+}
+
+/*game logo*/
+.game_logo {
+    width: 45%;
+    height: 15%
+}
+
+/*the layout of the creating the account*/
+.account_detail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 80px;
+}
+
+/*label*/
+.account_detail p{
+    font-size: 15px;
+    color: white;
+}
+
+.errors {
+    font-size: 15px;
+    color: red;
+
+}
+
+.username, .password, .confirm_password {
+    outline: none;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50px;
+    color: white;
+    background: none;
+    font-size: 20px;
+    padding: 10px;
+    height: 20px;
+    width: 350px;
+}
+
+/* layout button */
+.user_account_button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* when touch the button */
+.user_account_button:hover {
+    background-color: #2980b9;
+}
+
+.remember_me {
+    align-items: center;
+    display: flex;
+}
+
+/*if the already have or not have the account*/
+.account {
+    display: flex;
+    gap: 16px;
+    justify-content: space-evenly;
+    align: center;
+}
+
+/*button for Register or Login*/
+.account a {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3498db;
+    padding: 10px;
+    margin-left: -150px;
+
+}
+
+/*when it touches the button for register or login*/
+.account a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/*upi label*/
+.copyright {
+    background: #15161a;
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    margin-top: auto;
+    padding: 30px;
+}
+
+/*heading 1*/
+h1 {
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.flash.success {
+    background-color: #dff0d8;
+    border-color: #d0e9c6;
+    color: #3c763d;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.flash.info {
+    background-color: #e0f0ff;
+    border-color: #d0e0ff;
+    color: #3c3c76;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.flash.error {
+    background-color: #ffe0e0;
+    border-color: #ffd0d0;
+    color: #763c3c;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.flash.warning {
+    background-color: #ffffe0;
+    border-color: #ffefd5;
+    color: #8a6d3b;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}

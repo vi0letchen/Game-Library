@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Browse Games</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/browse.css') }}">
+
+</head>
+
+<body>
+<!--Buttons and search bar and logo-->
+<header class="header">
+    <!--Gaming logo button       -->
+    <a class="gaming_logo" href="/"><img src="{{ url_for('static', filename='gaming_logo.jpg') }}"
+                                         alt="gaming logo"></a>
+    <!--Buttons-->
+    <ul>
+        <a id="home" href="/">Home</a>
+        <a id="browse" href="/browse">Browse</a>
+        <a id="wishlist" href="/wishlist">Wishlist</a>
+        <a id="profile" href="/profile">Profile</a>
+        <!-- Add other navigation links as needed -->
+    </ul>
+
+    <!--Register and Login button-->
+    <section class="account_button">
+        <!-- Check if user is logged in -->
+        {% if 'username' not in session %}
+        <!-- If user is NOT logged in, show these -->
+        <a href="{{ url_for('auth_bp.register') }}">Register</a>
+        <a href="{{ url_for('auth_bp.login') }}">Login</a>
+        {% else %}
+        <!-- If user IS logged in, show this -->
+        <a href="{{ url_for('auth_bp.logout') }}">Logout</a>
+        {% endif %}
+    </section>
+</header>
+
+<h2>Total Games - {{num_games}} </h2>
+
+<!--Search bar and search button-->
+<form class="search_game" action="/search" method="get">
+    {% include 'search.html' %}
+    <input class="search_bar" type="text" name="query" placeholder="Search for games...">
+    <input class="search_button" id="search_logo" type="image" src="{{ url_for('static', filename='search_logo.jpg') }}"
+           alt="Search">
+</form>
+
+<div class="content-wrapper">
+    <!-- Genre-based sidebar -->
+    <div class="sidebar">
+        <h2>Genres</h2>
+        <ul>
+            {% for genre in genres %}
+            <li><a href="{{ url_for('games_bp.browse_games_by_genre', genre_name=genre.genre_name) }}">{{ genre.genre_name }}</a>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- Games table layout -->
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Release Date</th>
+                <th>Price</th>
+                <th>Publisher</th>
+                <th>Genres</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for game in games %}
+            <tr>
+                <td class="game_id">{{ game.game_id }}</td>
+                <td><a class="game_title" href="{{ url_for('games_bp.show_game_detail', game_id = game.game_id)}}"> {{
+                    game.title }} </a></td>
+                <td class="game_date">{{ game.release_date }}</td>
+                <td class="game_price">${{ game.price }}</td>
+                <td class="game_publisher_name">{{ game.publisher.publisher_name }}</td>
+                <td class="game_genres">
+                    <span> {{ game.genres|join(', ') }}</span>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">No games found matching your criteria.</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            {% if context == 'genre' %}
+            {% set browse_url = 'games_bp.browse_games_by_genre' %}
+            {% else %}
+            {% set browse_url = 'games_bp.browse_games' %}
+            {% endif %}
+
+            {% set GAMES_PER_PAGE = 15 %}
+
+            <!-- First page link -->
+            {% if current_page > 1 %}
+            <a href="{{ url_for(browse_url, genre_name=current_genre, page_num=1) }}">First</a>
+            {% endif %}
+
+            <!-- Previous page link -->
+            {% if current_page > 1 %}
+            <a href="{{ url_for(browse_url, genre_name=current_genre, page_num=current_page-1) }}">Previous</a>
+            {% endif %}
+
+            <!-- Display the current page number and total pages -->
+            <span>Page {{ current_page }} of {{ (num_games / GAMES_PER_PAGE)|round(0, 'ceil')|int }}</span>
+
+            <!-- Next page link -->
+            {% if current_page * GAMES_PER_PAGE < num_games %}
+            <a href="{{ url_for(browse_url, genre_name=current_genre, page_num=current_page+1) }}">Next</a>
+            {% endif %}
+
+            <!-- Last page link -->
+            {% if current_page * GAMES_PER_PAGE < num_games %}
+            <a href="{{ url_for(browse_url, genre_name=current_genre, page_num=(num_games / GAMES_PER_PAGE)|round(0, 'ceil')) }}">Last</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!--Creator-->
+<footer class="copyright">
+    <!-- You can add footer details if needed -->
+    &copy; hche589 | stan363 | ycha624
+</footer>
+</body>
+
+</html>

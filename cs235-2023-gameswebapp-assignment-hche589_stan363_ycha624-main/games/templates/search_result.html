@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ... -->
+<head>
+    <meta charset="UTF-8">
+    <title>Search Games</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search_result.css') }}">
+
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <h2>Search result:</h2>
+    <ul class="search_list">
+        {% for game in games %}
+            <li><a href="{{ url_for('games_bp.show_game_detail', game_id = game.game_id)}}">{{ game.title }}</a></li>
+        {% else %}
+            <h2>No games found matching your criteria.</h2>
+        {% endfor %}
+    </ul>
+
+
+    <!-- ... -->
+<!--Creator-->
+    <footer class="copyright">
+        <!-- You can add footer details if needed -->
+        &copy; hche589 | stan363 | ycha624
+    </footer>
+</body>
+</html>

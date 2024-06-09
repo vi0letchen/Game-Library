@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Game Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flashes">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+
+    <section class="main">
+        <div class="heading">
+            <h1>WELCOME TO</h1>
+            <h1>CS235 GAME LIBRARY</h1>
+            <!-- Home page description -->
+            <p id="home_description">
+                An extensive collection of the best video games.
+                <br>
+                Dive in and explore
+            </p>
+
+        </div>
+        <br>
+        <!-- Game logo -->
+        <img class="game_logo" src="{{ url_for('static', filename='game_logo.png') }}" alt="game logo">
+    </section>
+
+    <footer class="copyright">
+        <!-- You can add footer details if needed -->
+        &copy; hche589 | stan363 | ycha624
+    </footer>
+
+</body>
+
+</html>
